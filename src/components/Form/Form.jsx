@@ -21,10 +21,10 @@ const Form = () => {
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
         return () => {
-            tg.onEvent('mainButtonClicked', onSendData)
+            tg.offEvent('mainButtonClicked', onSendData)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [tg]);
+    }, [onSendData, tg]);
 
     useEffect(() => {
         tg.MainButton.setParams({
