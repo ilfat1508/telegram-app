@@ -19,12 +19,13 @@ const Form = () => {
 
 
     useEffect(() => {
-        tg.WebApp.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onSendData)
         return () => {
-            tg.WebApp.onEvent('mainButtonClicked', onSendData)
+            tg.onEvent('mainButtonClicked', onSendData)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tg]);
+
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные'
