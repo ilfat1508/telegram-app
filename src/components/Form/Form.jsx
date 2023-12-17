@@ -23,7 +23,7 @@ const Form = () => {
         return () => {
             tg.WebApp.onEvent('mainButtonClicked', onSendData)
         }
-    }, [tg]);
+    }, [tg, onSendData]);
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные'
