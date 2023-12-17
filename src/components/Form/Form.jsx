@@ -17,13 +17,14 @@ const Form = () => {
         tg.sendData(JSON.stringify(data))
     }, [country, street, subject, tg])
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     useEffect(() => {
         tg.WebApp.onEvent('mainButtonClicked', onSendData)
         return () => {
             tg.WebApp.onEvent('mainButtonClicked', onSendData)
         }
-    }, [tg, onSendData]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [tg]);
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные'
